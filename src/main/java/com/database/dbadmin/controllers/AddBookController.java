@@ -6,6 +6,7 @@ import com.database.dbadmin.models.Book;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.w3c.dom.Text;
 
@@ -35,6 +36,9 @@ public class AddBookController {
     @FXML
     public TextField publisher;
 
+    @FXML
+    public Label result;
+
 
     public void close(ActionEvent actionEvent) {
         helloApplication.close();
@@ -56,6 +60,16 @@ public class AddBookController {
         book.setBook_brief_description(description.getText());
         book.setPublisher_name(publisher.getText());
         bookDataBase.save(book);
-
+        clear();
+        result.setText("Сохранено");
+    }
+    public void clear(){
+        publisher.clear();
+        pages.clear();
+        name.clear();
+        author.clear();
+        date.setValue(null);
+        genre.clear();
+        description.clear();
     }
 }

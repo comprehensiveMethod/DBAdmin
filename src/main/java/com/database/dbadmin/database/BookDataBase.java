@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookDataBase implements IDataBaseObject<Book> {
@@ -26,9 +27,11 @@ public class BookDataBase implements IDataBaseObject<Book> {
             statement.setInt(6,book.getPages());
             statement.setString(7, book.getBook_name());
             statement.executeUpdate();
+            System.out.println("SQL: Created book with name: " + book.getBook_name());
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
+
     }
 
     @Override
@@ -70,7 +73,6 @@ public class BookDataBase implements IDataBaseObject<Book> {
             PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setLong(2,id);
             ResultSet set = statement.executeQuery();
-            //TODO прописать маппинг книги
             book.setBook_name(set.getString("book_name"));
             book.setId(set.getLong("id"));
             book.setAuthor(set.getString("author"));
@@ -87,6 +89,27 @@ public class BookDataBase implements IDataBaseObject<Book> {
     }
 
     public List<Book> getAll(){
-        return null;
+        List<Book> bookList = new ArrayList<>();
+        String query = "SELECT * FROM book_store_schema.book";
+        try(Connection connection = dbConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement(query)) {
+            ResultSet set = statement.executeQuery();
+            while (set.next()){
+                Book book = new Book();
+                book.setBook_name(set.getString("book_name"));
+                book.setId(set.getLong("id"));
+                book.setAuthor(set.getString("author"));
+                book.setBook_brief_description(set.getString("book_brief_description"));
+                book.setGenre(set.getString("genre"));
+                book.setPages(set.getInt("pages"));
+                book.setPublication_date(set.getDate("publication_date"));
+                book.setPublisher_name(set.getString("publisher_name"));
+                bookList.add(book);
+            }
+        }
+        catch (SQLException e){
+            System.out.println(e.getMessage() + "\n" +e.getCause());
+        }
+        return bookList;
     }
 }

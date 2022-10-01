@@ -32,7 +32,7 @@ public class MainPageController {
         helloApplication.close();
     }
 
-    public void SelectBook(ActionEvent actionEvent) {
-
+    public void library(ActionEvent actionEvent) {
+        helloApplication.changeScene("library.fxml");
     }
 }

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.util.Stack;
 
 @Getter
 @Setter
@@ -19,4 +20,7 @@ public class Book {
     private int pages;
     private String book_brief_description;
 
+    public String toString(){
+        return "Номер в базе:"+this.id+" Название книги: "+ this.book_name;
+    }
 }
