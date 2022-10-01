@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #faedcd;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.database.dbadmin.controllers.AddBookController">
+   <children>
+      <Button layoutX="583.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" prefHeight="18.0" prefWidth="26.0" style="-fx-background-color: #d4a373;" text="Х" />
+      <Button layoutY="1.0" mnemonicParsing="false" onAction="#toMain" prefHeight="26.0" prefWidth="33.0" style="-fx-background-color: #d4a373;" text="&lt;-" />
+      <Text layoutX="211.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить книгу">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <TextField fx:id="name" layoutX="34.0" layoutY="101.0" prefHeight="26.0" prefWidth="221.0" />
+      <TextField fx:id="author" layoutX="35.0" layoutY="156.0" prefHeight="26.0" prefWidth="222.0" />
+      <TextField fx:id="pages" layoutX="35.0" layoutY="212.0" prefHeight="26.0" prefWidth="222.0" />
+      <TextField fx:id="genre" layoutX="35.0" layoutY="272.0" prefHeight="26.0" prefWidth="222.0" />
+      <TextField fx:id="publisher" layoutX="386.0" layoutY="156.0" prefHeight="26.0" prefWidth="202.0" />
+      <DatePicker fx:id="date" layoutX="386.0" layoutY="101.0" prefHeight="26.0" prefWidth="202.0" />
+      <Text layoutX="34.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название книги">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="" layoutX="34.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Авторы">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="34.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Кол-во страниц">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text  layoutX="34.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Жанр">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="publisher_name" layoutX="386.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название издательства">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="publication_date" layoutX="386.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата публикации">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="35.0" layoutY="337.0" mnemonicParsing="false" onAction="#createBook" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #d4a373;" text="Создать">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="description" layoutX="383.0" layoutY="213.0" prefHeight="164.0" prefWidth="214.0" />
+      <Text layoutX="387.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Краткое содержание">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
