@@ -71,7 +71,7 @@ public class BookDataBase implements IDataBaseObject<Book> {
         String query = "SELECT * FROM book_store_schema.book WHERE id=?";
         try(Connection connection = dbConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setLong(2,id);
+            statement.setLong(1,id);
             ResultSet set = statement.executeQuery();
             book.setBook_name(set.getString("book_name"));
             book.setId(set.getLong("id"));
